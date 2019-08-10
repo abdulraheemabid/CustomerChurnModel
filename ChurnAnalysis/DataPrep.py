@@ -14,6 +14,17 @@ class DataPrep:
         data = DataPrep.add_headers(data, headers)
         data = DataPrep.add_ids(data)
         data = DataPrep.add_labels(data, labels)
+
+        values_missing = DataPrep.check_if_missing_values(data)
+        if values_missing:
+            DataPrep.handle_missing_values()
+
+        DataPrep.make_dtypes_consistent(data)
+        values_missing = DataPrep.check_if_missing_values(data)
+
+        if values_missing:
+            DataPrep.handle_missing_values()
+
         return data
 
     @staticmethod
@@ -43,6 +54,15 @@ class DataPrep:
         label_data = pd.read_csv("..\\Data\\train_lable.csv", header=None)
 
         return data, headers_data, label_data
+
+    @staticmethod
+    def check_if_missing_values(data):
+        return data.isnull().values.any()
+
+    @staticmethod
+    def make_dtypes_consistent(data):
+        data = data.astype(int)
+        print(data.dtypes)
 
     @staticmethod
     def handle_missing_values():

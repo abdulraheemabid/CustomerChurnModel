@@ -6,4 +6,5 @@ eda = Eda()
 
 data = dp.prep_data()
 eda.initiate_eda(data)
+print("done")
 
