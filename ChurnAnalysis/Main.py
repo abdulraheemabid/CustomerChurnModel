@@ -1,10 +1,15 @@
 from DataPrep import DataPrep
 from Eda import Eda
+from Model import Model
 
 dp = DataPrep()
 eda = Eda()
+model = Model()
 
-data = dp.prep_data()
-eda.initiate_eda(data)
+data = dp.initiate()
+data = eda.initiate(data)
+model.initiate(data)
+
+
 print("done")
 

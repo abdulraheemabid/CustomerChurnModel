@@ -1,5 +1,15 @@
 import matplotlib.pyplot as plt
-import time
+import math
+import numpy as np
+from scipy import stats
+import seaborn as sns
+import pandas as pd
+from sklearn import linear_model
+import eli5
+from eli5.sklearn import PermutationImportance
+from sklearn.model_selection import train_test_split
+from sklearn.feature_selection import SelectFromModel
+from sklearn.svm import SVC
 
 
 class Eda:
@@ -7,44 +17,157 @@ class Eda:
         pass
 
     @staticmethod
-    def initiate_eda(data):
+    def initiate(data):
+        data = Eda.remove_outliers(data)
+
         continuous_features, categorical_features = Eda.separate_categorical_continuous_features(data)
-        print(continuous_features)
-        print(categorical_features)
         Eda.analyze_continuous_features_distribution(data, continuous_features)
+        frequency_ratios = Eda.analyze_categorical_features_distribution(data, categorical_features)
+
+        data = Eda.convert_to_categorical_dtype(data, categorical_features)
+        data = Eda.select_features(data, frequency_ratios)
+
+        # Eda.generate_pair_plots(data)
+        return data
+
+    @staticmethod
+    def select_features(data, frequency_ratios):
+        data = data.drop(columns="id")
+
+        x = data.iloc[:, data.columns != "labels"].values
+        y = data.iloc[:, data.columns == "labels"].values
+        x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=0)
+
+        reg = linear_model.LinearRegression()
+        model = reg.fit(x_train, y_train)
+        perm = PermutationImportance(reg, random_state=1).fit(x_train, y_train)
+
+
+        #print(perm.feature_importances_)
+
+
+        non_important_cols = []
+        for i in range(0, len(perm.feature_importances_)):
+            if perm.feature_importances_[i] < 0.03:
+                non_important_cols.append(data.columns[i])
+
+
+
+        for feature in non_important_cols:
+            data = data.drop(columns=feature)
+
+       #  data = Eda.remove_single_categorical_features(data)
+
+
+
+        #features_to_remove = {key: value for (key, value) in frequency_ratios.items() if value < 10}
+        #for feature in features_to_remove:
+            #data = data.drop(columns=feature)
+
+
+        #data = data.drop(columns="A2")
+        #data = data.drop(columns="E")
+        #data = data.drop(columns="B2")
+        #data = data.drop(columns="A6")
+        return data
+
+    @staticmethod
+    def remove_single_categorical_features(data):
+        unique_count_series = data.nunique()
+        single_categorical_vars = unique_count_series[unique_count_series == 1]
+        for feature in single_categorical_vars.iteritems():
+            data = data.drop(columns=feature[0])
+        return data
+
+    @staticmethod
+    def convert_to_categorical_dtype(data, vars):
+        for feature in vars.iteritems():
+            data[feature[0]] = pd.Categorical(data[feature[0]])
+        return data
 
     @staticmethod
     def separate_categorical_continuous_features(data):
         unique_count_series = data.nunique()
-        continuous_features = unique_count_series[unique_count_series > 2]
+        continuous_features = unique_count_series[unique_count_series > 10]
         continuous_features = continuous_features.drop(labels=['id'])
-        categorical_features = unique_count_series[unique_count_series <= 2]
+        categorical_features = unique_count_series[unique_count_series <= 10]
         return continuous_features, categorical_features
 
     @staticmethod
     def analyze_continuous_features_distribution(data, continuous_features):
-        rows, cols = Eda.get_matrix_size_for_plots(continuous_features)
+        rows, cols, size = Eda.get_matrix_size_for_plots(continuous_features, 2)
+
         fig, axs = plt.subplots(rows, cols)
-        time.sleep(5)
         row_counter = 0
         col_counter = 0
         for feature in continuous_features.iteritems():
             # basic plot
-            axs[row_counter, col_counter].boxplot(data[feature[0]])
-            axs[row_counter, col_counter].set_title(feature[0])
+            if rows == 1:
+                axs[col_counter].boxplot(data[feature[0]])
+                axs[col_counter].set_title(feature[0])
+            else:
+                axs[row_counter, col_counter].boxplot(data[feature[0]])
+                axs[row_counter, col_counter].set_title(feature[0])
 
             col_counter += 1
             if col_counter > (cols-1):
                 row_counter += 1
                 col_counter = 0
 
+            if rows == 1:
+                axs[col_counter].hist(data[feature[0]], feature[1])
+                axs[col_counter].set_title(feature[0])
+            else:
+                axs[row_counter, col_counter].hist(data[feature[0]], feature[1])
+                axs[row_counter, col_counter].set_title(feature[0])
+            # plt.show()
+
+            col_counter += 1
+            if col_counter > (cols - 1):
+                row_counter += 1
+                col_counter = 0
 
     @staticmethod
-    def get_matrix_size_for_plots(columns_series):
+    def analyze_categorical_features_distribution(data, categorical_features):
+        rows, cols, size = Eda.get_matrix_size_for_plots(categorical_features, 1)
+
+        fig, axs = plt.subplots(rows, cols)
+        row_counter = 0
+        col_counter = 0
+        frequency_ratios = {}
+        for feature in categorical_features.iteritems():
+            frequencies_of_categories = data[feature[0]].value_counts()
+            frequency_ratio = (float(frequencies_of_categories.min()) / float(frequencies_of_categories.max())) * 100
+            frequency_ratios[feature[0]] = frequency_ratio
+            axs[row_counter, col_counter].hist(data[feature[0]], feature[1], edgecolor='white', linewidth=2)
+            axs[row_counter, col_counter].set_title(str(feature[0]) + " - " + str(frequency_ratio) + "%")
+            # plt.show()
+
+            col_counter += 1
+            if col_counter > (cols - 1):
+                row_counter += 1
+                col_counter = 0
+        return frequency_ratios
+
+    @staticmethod
+    def generate_pair_plots(data):
+        for column in data.columns:
+            sns.catplot(x=column, col="labels", data=data, kind="count", height=4, aspect=.7)
+
+        print("done")
+
+    @staticmethod
+    def remove_outliers(data):
+        return data[(np.abs(stats.zscore(data)) < 3).all(axis=1)]
+
+    @staticmethod
+    def get_matrix_size_for_plots(columns_series, number_of_charts):
         size = columns_series.size
-        if (size % 2) == 0:
-            return size/2, size/2
+        size = size * number_of_charts
+        if size < 5:
+            cols = size
+            rows = 1
         else:
-            rows = (size / 2) + 1
-            cols = size - rows
-            return rows, cols
+            cols = 5
+            rows = int(math.ceil(size / 5.0))
+        return rows, cols, size

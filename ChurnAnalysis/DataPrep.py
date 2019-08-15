@@ -9,7 +9,7 @@ class DataPrep:
         pass
 
     @staticmethod
-    def prep_data():
+    def initiate():
         data, headers, labels = DataPrep.read_all_csv()
         data = DataPrep.add_headers(data, headers)
         data = DataPrep.add_ids(data)
@@ -62,7 +62,6 @@ class DataPrep:
     @staticmethod
     def make_dtypes_consistent(data):
         data = data.astype(int)
-        print(data.dtypes)
 
     @staticmethod
     def handle_missing_values():
