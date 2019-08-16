@@ -14,4 +14,5 @@ It contains 4 files:
 * Eda.py 
 * DataPrep.py 
 * Model.py
+
 Run main.py in order to execute the program. Main program first runs DataPrep class, which gathers the data and do some preparations. Then Eda is run for all the analysis and finally Model class is executed, which trains and tests several machine learning models.
