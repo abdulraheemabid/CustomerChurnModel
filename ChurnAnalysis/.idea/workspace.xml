@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75caa02d-c746-4442-86c1-cebf15621cfe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConfigReader.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/DataPrep.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataPrep.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Eda.py" beforeDir="false" afterPath="$PROJECT_DIR$/Eda.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Report.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../Report.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../~$Report.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,44 +19,54 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Eda.py">
+        <entry file="file://$PROJECT_DIR$/DataPrep.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="50" column="50" selection-start-line="50" selection-start-column="50" selection-end-line="50" selection-end-column="50" />
+            <state relative-caret-position="22">
+              <caret line="1" column="18" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="18" />
               <folding>
-                <element signature="e#0#31#0" expanded="true" />
-                <element signature="e#1110#1226#0" />
-                <element signature="e#1310#1627#0" />
-                <element signature="e#1732#2888#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Model.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-              <folding>
-                <element signature="e#0#52#0" expanded="true" />
-                <element signature="e#329#569#0" />
-                <element signature="e#538#1252#0" />
-                <element signature="e#1370#2285#0" />
-                <element signature="e#2453#3201#0" />
-                <element signature="e#3122#3931#0" />
-                <element signature="e#3966#4821#0" />
-                <element signature="e#5062#5134#0" />
+                <element signature="e#1#20#0" expanded="true" />
+                <element signature="e#142#679#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Eda.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2185">
+              <caret line="163" lean-forward="true" selection-start-line="163" selection-end-line="163" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+                <element signature="e#787#1032#0" />
+                <element signature="e#1110#1226#0" />
+                <element signature="e#1310#1627#0" />
+                <element signature="e#1732#2888#0" />
+                <element signature="e#2995#3919#0" />
+                <element signature="e#6699#6756#0" />
+                <element signature="e#4415#4659#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Model.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="7" selection-start-column="7" selection-end-column="7" />
+              <folding>
+                <element signature="e#5914#6042#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="15" lean-forward="true" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+            <state relative-caret-position="220">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -76,8 +86,14 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>fig</find>
-      <find>drop</find>
       <find>data col size:</find>
+      <find>drop</find>
+      <find>plt</find>
+      <find>scipy</find>
+      <find>stats</find>
+      <find>sns</find>
+      <find>sklearn</find>
+      <find>np</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -94,16 +110,17 @@
         <option value="$PROJECT_DIR$/dataPrep.py" />
         <option value="$PROJECT_DIR$/FeatureEngineeringAndModel.py" />
         <option value="$PROJECT_DIR$/DataPrep.py" />
-        <option value="$PROJECT_DIR$/Main.py" />
         <option value="$PROJECT_DIR$/Eda.py" />
         <option value="$PROJECT_DIR$/Model.py" />
+        <option value="$PROJECT_DIR$/Main.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="93" />
-    <option name="width" value="1920" />
-    <option name="height" value="1032" />
+    <option name="x" value="-9" />
+    <option name="y" value="28" />
+    <option name="width" value="1937" />
+    <option name="height" value="2130" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -188,16 +205,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="23" width="2575" height="1424" extended-state="6" />
+    <frame x="-7" y="23" width="3086" height="1712" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.107959025" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.08986553" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32972136" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32894737" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39164087" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.24936709" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32972136" />
@@ -231,13 +248,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Model.py</url>
-          <line>124</line>
-          <option name="timeStamp" value="113" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -263,10 +273,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/FeatureEngineeringAndModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="9" selection-start-column="9" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ConfigReader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="176">
+          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -277,59 +294,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FeatureEngineeringAndModel.py">
+    <entry file="file://$PROJECT_DIR$/Model.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="9" selection-start-column="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataPrep.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#5914#6042#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Eda.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="50" column="50" selection-start-line="50" selection-start-column="50" selection-end-line="50" selection-end-column="50" />
+        <state relative-caret-position="2185">
+          <caret line="163" lean-forward="true" selection-start-line="163" selection-end-line="163" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#787#1032#0" />
             <element signature="e#1110#1226#0" />
             <element signature="e#1310#1627#0" />
             <element signature="e#1732#2888#0" />
+            <element signature="e#2995#3919#0" />
+            <element signature="e#6699#6756#0" />
+            <element signature="e#4415#4659#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataPrep.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="18" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="18" />
+          <folding>
+            <element signature="e#1#20#0" expanded="true" />
+            <element signature="e#142#679#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="15" lean-forward="true" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+        <state relative-caret-position="220">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#0#52#0" expanded="true" />
-            <element signature="e#329#569#0" />
-            <element signature="e#538#1252#0" />
-            <element signature="e#1370#2285#0" />
-            <element signature="e#2453#3201#0" />
-            <element signature="e#3122#3931#0" />
-            <element signature="e#3966#4821#0" />
-            <element signature="e#5062#5134#0" />
           </folding>
         </state>
       </provider>
